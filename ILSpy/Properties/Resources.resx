@@ -225,6 +225,9 @@ Are you sure you want to continue?</value>
   <data name="DebugThisStep" xml:space="preserve">
     <value>Debug this step</value>
   </data>
+  <data name="DecompilationCompleteInF1Seconds" xml:space="preserve">
+    <value>Decompilation complete in {0:F1} seconds.</value>
+  </data>
   <data name="Decompile" xml:space="preserve">
     <value>Decompile</value>
   </data>
@@ -264,9 +267,6 @@ Are you sure you want to continue?</value>
   <data name="DecompilerSettings.AsyncEnumerator" xml:space="preserve">
     <value>Decompile async IAsyncEnumerator methods</value>
   </data>
-  <data name="DecompilerSettings.DecompileAndOperators" xml:space="preserve">
-    <value>Decompile ?. and ?[] operators</value>
-  </data>
   <data name="DecompilerSettings.DecompileAnonymousMethodsLambdas" xml:space="preserve">
     <value>Decompile anonymous methods/lambdas</value>
   </data>
@@ -296,6 +296,9 @@ Are you sure you want to continue?</value>
   </data>
   <data name="DecompilerSettings.DecompileExpressionTrees" xml:space="preserve">
     <value>Decompile expression trees</value>
+  </data>
+  <data name="DecompilerSettings.DecompileForEachWithGetEnumeratorExtension" xml:space="preserve">
+    <value>Decompile foreach statements with GetEnumerator extension methods</value>
   </data>
   <data name="DecompilerSettings.DecompileUseOfTheDynamicType" xml:space="preserve">
     <value>Decompile use of the 'dynamic' type</value>
@@ -333,6 +336,9 @@ Are you sure you want to continue?</value>
   <data name="DecompilerSettings.ForStatement" xml:space="preserve">
     <value>Transform to for, if possible</value>
   </data>
+  <data name="DecompilerSettings.FunctionPointers" xml:space="preserve">
+    <value>Function pointers</value>
+  </data>
   <data name="DecompilerSettings.IncludeXMLDocumentationCommentsInTheDecompiledCode" xml:space="preserve">
     <value>Include XML documentation comments in the decompiled code</value>
   </data>
@@ -359,6 +365,9 @@ Are you sure you want to continue?</value>
   </data>
   <data name="DecompilerSettings.NativeIntegers" xml:space="preserve">
     <value>Use nint/nuint types</value>
+  </data>
+  <data name="DecompilerSettings.NullPropagation" xml:space="preserve">
+    <value>Decompile ?. and ?[] operators</value>
   </data>
   <data name="DecompilerSettings.NullableReferenceTypes" xml:space="preserve">
     <value>Nullable reference types</value>
@@ -389,6 +398,12 @@ Are you sure you want to continue?</value>
   </data>
   <data name="DecompilerSettings.ShowInfoFromDebugSymbolsIfAvailable" xml:space="preserve">
     <value>Show info from debug symbols, if available</value>
+  </data>
+  <data name="DecompilerSettings.SparseIntegerSwitch" xml:space="preserve">
+    <value>Detect switch on integer even if IL code does not use a jump table</value>
+  </data>
+  <data name="DecompilerSettings.StringConcat" xml:space="preserve">
+    <value>Decompile 'string.Concat(a, b)' calls into 'a + b'</value>
   </data>
   <data name="DecompilerSettings.SwitchExpressions" xml:space="preserve">
     <value>Switch expressions</value>
@@ -431,6 +446,9 @@ Are you sure you want to continue?</value>
   </data>
   <data name="DecompilerSettings.UsePatternBasedFixedStatement" xml:space="preserve">
     <value>Use pattern-based fixed statement</value>
+  </data>
+  <data name="DecompilerSettings.UseRefLocalsForAccurateOrderOfEvaluation" xml:space="preserve">
+    <value>Use ref locals to accurately represent order of evaluation</value>
   </data>
   <data name="DecompilerSettings.UseSdkStyleProjectFormat" xml:space="preserve">
     <value>Use new SDK style format for generated project files (*.csproj)</value>
@@ -627,6 +645,15 @@ Please disable all filters that might hide the item (i.e. activate "View &gt; Sh
   </data>
   <data name="PortablePDBPdbAllFiles" xml:space="preserve">
     <value>Portable PDB|*.pdb|All files|*.*</value>
+  </data>
+  <data name="ProjectExportFormatChangeSettingHint" xml:space="preserve">
+    <value>You can change this by toggling the setting at Options &gt; Decompiler &gt; Other &gt; Use new SDK style format for generated project files (*.csproj).</value>
+  </data>
+  <data name="ProjectExportFormatNonSDKHint" xml:space="preserve">
+    <value>A Non-SDK project was generated. Learn more at https://docs.microsoft.com/en-us/nuget/resources/check-project-format.</value>
+  </data>
+  <data name="ProjectExportFormatSDKHint" xml:space="preserve">
+    <value>A SDK-style project was generated. Learn more at https://docs.microsoft.com/en-us/nuget/resources/check-project-format.</value>
   </data>
   <data name="PropertyManuallyMissingReferencesListLoadedAssemblies" xml:space="preserve">
     <value>for ex. property getter/setter access. To get optimal decompilation results, please manually add the missing references to the list of loaded assemblies.</value>

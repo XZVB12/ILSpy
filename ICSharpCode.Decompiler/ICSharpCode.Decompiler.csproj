@@ -20,7 +20,7 @@
     <AssemblyOriginatorKeyFile>ICSharpCode.Decompiler.snk</AssemblyOriginatorKeyFile>
     <NoWarn>1701;1702;1591;1573</NoWarn>
   </PropertyGroup>
-  
+
   <!-- HACK: Disable package generation on Unix due to tooling issues. -->
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -46,11 +46,12 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
+  <Import Project="..\packages.props" />
+
   <ItemGroup>
-    <PackageReference Include="Humanizer.Core" Version="2.2.0" />
-    <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
-    <PackageReference Include="System.Reflection.Metadata" Version="1.6.0" />
-    <PackageReference Include="System.ValueTuple" Version="4.3.0" />
+    <PackageReference Include="Humanizer.Core" Version="$(HumanizerVersion)" />
+    <PackageReference Include="System.Collections.Immutable" Version="$(SystemCollectionsImmutableVersion)" />
+    <PackageReference Include="System.Reflection.Metadata" Version="$(SystemReflectionMetadataVersion)" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -72,7 +73,7 @@
     <Compile Include="CSharp\ProjectDecompiler\TargetServices.cs" />
     <Compile Include="CSharp\Syntax\Expressions\DeclarationExpression.cs" />
     <Compile Include="CSharp\Syntax\Expressions\SwitchExpression.cs" />
-    <Compile Include="CSharp\Syntax\FunctionPointerType.cs" />
+    <Compile Include="CSharp\Syntax\FunctionPointerAstType.cs" />
     <Compile Include="CSharp\Syntax\VariableDesignation.cs" />
     <Compile Include="IL\Transforms\DeconstructionTransform.cs" />
     <Compile Include="IL\Transforms\FixLoneIsInst.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Documentation\XmlDocumentationElement.cs" />
     <Compile Include="IL\ControlFlow\AwaitInFinallyTransform.cs" />
     <Compile Include="IL\Transforms\IntroduceNativeIntTypeOnLocals.cs" />
+    <Compile Include="Semantics\OutVarResolveResult.cs" />
     <Compile Include="Solution\ProjectId.cs" />
     <Compile Include="Solution\ProjectItem.cs" />
     <Compile Include="Solution\SolutionCreator.cs" />
@@ -249,6 +251,7 @@
     <Compile Include="CSharp\Resolver\OverloadResolutionErrors.cs" />
     <Compile Include="IL\Transforms\FixRemainingIncrements.cs" />
     <Compile Include="IL\Transforms\ILExtraction.cs" />
+    <Compile Include="TypeSystem\FunctionPointerType.cs" />
     <Compile Include="TypeSystem\Implementation\LocalFunctionMethod.cs" />
     <Compile Include="CSharp\Resolver\TypeInference.cs" />
     <Compile Include="CSharp\Transforms\CombineQueryExpressions.cs" />
@@ -624,12 +627,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\nrefactory\doc\XML Documentation.html">
-      <Link>Documentation\XML Documentation.html</Link>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="..\doc\Pattern Matching.html">
       <Link>CSharp\Syntax\PatternMatching\Pattern Matching.html</Link>
     </Content>
@@ -660,5 +657,5 @@
     <Exec WorkingDirectory=".." Command="$(UpdateAssemblyInfo)" Timeout="60000" Condition="'$(CommitHash)'!='$(LastCommitHash)'" />
     <WriteLinesToFile Lines="$(CommitHash)" File="@(UpdateAssemblyInfoStamp)" Overwrite="true" Condition="'$(CommitHash)'!='$(LastCommitHash)'" />
   </Target>
-  
+
 </Project>

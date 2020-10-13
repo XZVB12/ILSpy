@@ -595,6 +595,15 @@ namespace ICSharpCode.ILSpy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Decompilation complete in {0:F1} seconds..
+        /// </summary>
+        public static string DecompilationCompleteInF1Seconds {
+            get {
+                return ResourceManager.GetString("DecompilationCompleteInF1Seconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Decompile.
         /// </summary>
         public static string Decompile {
@@ -703,15 +712,6 @@ namespace ICSharpCode.ILSpy.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Decompile ?. and ?[] operators.
-        /// </summary>
-        public static string DecompilerSettings_DecompileAndOperators {
-            get {
-                return ResourceManager.GetString("DecompilerSettings.DecompileAndOperators", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Decompile anonymous methods/lambdas.
         /// </summary>
         public static string DecompilerSettings_DecompileAnonymousMethodsLambdas {
@@ -798,6 +798,15 @@ namespace ICSharpCode.ILSpy.Properties {
         public static string DecompilerSettings_DecompileExpressionTrees {
             get {
                 return ResourceManager.GetString("DecompilerSettings.DecompileExpressionTrees", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decompile foreach statements with GetEnumerator extension methods.
+        /// </summary>
+        public static string DecompilerSettings_DecompileForEachWithGetEnumeratorExtension {
+            get {
+                return ResourceManager.GetString("DecompilerSettings.DecompileForEachWithGetEnumeratorExtension", resourceCulture);
             }
         }
         
@@ -910,6 +919,15 @@ namespace ICSharpCode.ILSpy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Function pointers.
+        /// </summary>
+        public static string DecompilerSettings_FunctionPointers {
+            get {
+                return ResourceManager.GetString("DecompilerSettings.FunctionPointers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Include XML documentation comments in the decompiled code.
         /// </summary>
         public static string DecompilerSettings_IncludeXMLDocumentationCommentsInTheDecompiledCode {
@@ -1002,6 +1020,15 @@ namespace ICSharpCode.ILSpy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Decompile ?. and ?[] operators.
+        /// </summary>
+        public static string DecompilerSettings_NullPropagation {
+            get {
+                return ResourceManager.GetString("DecompilerSettings.NullPropagation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Object/collection initializer expressions.
         /// </summary>
         public static string DecompilerSettings_ObjectCollectionInitializerExpressions {
@@ -1079,6 +1106,24 @@ namespace ICSharpCode.ILSpy.Properties {
         public static string DecompilerSettings_ShowInfoFromDebugSymbolsIfAvailable {
             get {
                 return ResourceManager.GetString("DecompilerSettings.ShowInfoFromDebugSymbolsIfAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detect switch on integer even if IL code does not use a jump table.
+        /// </summary>
+        public static string DecompilerSettings_SparseIntegerSwitch {
+            get {
+                return ResourceManager.GetString("DecompilerSettings.SparseIntegerSwitch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decompile &apos;string.Concat(a, b)&apos; calls into &apos;a + b&apos;.
+        /// </summary>
+        public static string DecompilerSettings_StringConcat {
+            get {
+                return ResourceManager.GetString("DecompilerSettings.StringConcat", resourceCulture);
             }
         }
         
@@ -1205,6 +1250,15 @@ namespace ICSharpCode.ILSpy.Properties {
         public static string DecompilerSettings_UsePatternBasedFixedStatement {
             get {
                 return ResourceManager.GetString("DecompilerSettings.UsePatternBasedFixedStatement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use ref locals to accurately represent order of evaluation.
+        /// </summary>
+        public static string DecompilerSettings_UseRefLocalsForAccurateOrderOfEvaluation {
+            get {
+                return ResourceManager.GetString("DecompilerSettings.UseRefLocalsForAccurateOrderOfEvaluation", resourceCulture);
             }
         }
         
@@ -1800,6 +1854,33 @@ namespace ICSharpCode.ILSpy.Properties {
         public static string PortablePDBPdbAllFiles {
             get {
                 return ResourceManager.GetString("PortablePDBPdbAllFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can change this by toggling the setting at Options &gt; Decompiler &gt; Other &gt; Use new SDK style format for generated project files (*.csproj)..
+        /// </summary>
+        public static string ProjectExportFormatChangeSettingHint {
+            get {
+                return ResourceManager.GetString("ProjectExportFormatChangeSettingHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A Non-SDK project was generated. Learn more at https://docs.microsoft.com/en-us/nuget/resources/check-project-format..
+        /// </summary>
+        public static string ProjectExportFormatNonSDKHint {
+            get {
+                return ResourceManager.GetString("ProjectExportFormatNonSDKHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A SDK-style project was generated. Learn more at https://docs.microsoft.com/en-us/nuget/resources/check-project-format..
+        /// </summary>
+        public static string ProjectExportFormatSDKHint {
+            get {
+                return ResourceManager.GetString("ProjectExportFormatSDKHint", resourceCulture);
             }
         }
         

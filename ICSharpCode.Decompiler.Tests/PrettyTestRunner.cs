@@ -21,7 +21,9 @@ using System.CodeDom.Compiler;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+
 using ICSharpCode.Decompiler.Tests.Helpers;
+
 using NUnit.Framework;
 
 namespace ICSharpCode.Decompiler.Tests
@@ -38,9 +40,11 @@ namespace ICSharpCode.Decompiler.Tests
 				.Where(m => m.GetCustomAttributes(typeof(TestAttribute), false).Any())
 				.Select(m => m.Name)
 				.ToArray();
-			foreach (var file in new DirectoryInfo(TestCasePath).EnumerateFiles()) {
+			foreach (var file in new DirectoryInfo(TestCasePath).EnumerateFiles())
+			{
 				if (file.Extension.Equals(".il", StringComparison.OrdinalIgnoreCase)
-					|| file.Extension.Equals(".cs", StringComparison.OrdinalIgnoreCase)) {
+					|| file.Extension.Equals(".cs", StringComparison.OrdinalIgnoreCase))
+				{
 					var testName = file.Name.Split('.')[0];
 					Assert.Contains(testName, testNames);
 				}
@@ -369,6 +373,12 @@ namespace ICSharpCode.Decompiler.Tests
 		}
 
 		[Test]
+		public void FunctionPointers([ValueSource(nameof(roslynOnlyOptions))] CompilerOptions cscOptions)
+		{
+			RunForLibrary(cscOptions: cscOptions | CompilerOptions.Preview);
+		}
+
+		[Test]
 		public void NullPropagation([ValueSource(nameof(roslynOnlyOptions))] CompilerOptions cscOptions)
 		{
 			RunForLibrary(cscOptions: cscOptions);
@@ -425,7 +435,7 @@ namespace ICSharpCode.Decompiler.Tests
 		[Test]
 		public void OptionalArguments([ValueSource(nameof(defaultOptions))] CompilerOptions cscOptions)
 		{
-			RunForLibrary(cscOptions: cscOptions);
+			RunForLibrary(cscOptions: cscOptions | CompilerOptions.Preview);
 		}
 
 		[Test]
@@ -524,6 +534,12 @@ namespace ICSharpCode.Decompiler.Tests
 			RunForLibrary(cscOptions: cscOptions);
 		}
 
+		[Test]
+		public void CS9_ExtensionGetEnumerator([ValueSource(nameof(dotnetCoreOnlyOptions))] CompilerOptions cscOptions)
+		{
+			RunForLibrary(cscOptions: cscOptions | CompilerOptions.Preview);
+		}
+
 		void RunForLibrary([CallerMemberName] string testName = null, AssemblerOptions asmOptions = AssemblerOptions.None, CompilerOptions cscOptions = CompilerOptions.None, DecompilerSettings decompilerSettings = null)
 		{
 			Run(testName, asmOptions | AssemblerOptions.Library, cscOptions | CompilerOptions.Library, decompilerSettings);
@@ -533,22 +549,26 @@ namespace ICSharpCode.Decompiler.Tests
 		{
 			var csFile = Path.Combine(TestCasePath, testName + ".cs");
 			var exeFile = Path.Combine(TestCasePath, testName) + Tester.GetSuffix(cscOptions) + ".exe";
-			if (cscOptions.HasFlag(CompilerOptions.Library)) {
+			if (cscOptions.HasFlag(CompilerOptions.Library))
+			{
 				exeFile = Path.ChangeExtension(exeFile, ".dll");
 			}
 
 			// 1. Compile
 			CompilerResults output = null;
-			try {
+			try
+			{
 				output = Tester.CompileCSharp(csFile, cscOptions, exeFile);
-			} finally {
+			}
+			finally
+			{
 				if (output != null)
 					output.TempFiles.Delete();
 			}
 
 			// 2. Decompile
 			var decompiled = Tester.DecompileCSharp(exeFile, decompilerSettings ?? Tester.GetSettings(cscOptions));
-			
+
 			// 3. Compile
 			CodeAssert.FilesAreEqual(csFile, decompiled, Tester.GetPreprocessorSymbols(cscOptions).ToArray());
 		}
